@@ -11,13 +11,13 @@
     <version>portable-1.2.8</version>   
 </dependency>
 ```
-
-`<dependency>     
+```
+<dependency>     
     <groupId>org.scalanlp</groupId>    
     <artifactId>nak_2.10</artifactId>     
     <version>1.3</version>    
-</dependency>`    
-  
+</dependency>  
+```
 处理流程：  
 1、处理语料  
 2、分词，全角转半角、停用词处理、分词、存储  
