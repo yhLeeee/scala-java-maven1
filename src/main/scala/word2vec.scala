@@ -18,6 +18,16 @@ object word2vec {
 
     //save and load model
     model.save(sc, "word2vec模型路径")
-    
+    val local = model.getVectors.map{
+      case (word, vector) => Seq(word, vector.mkString(" ")).mkString(":")
+    }.toArray
+    sc.parallelize(local).saveAsTextFile("word2vec词向量路径")
+
+    //predict similar words
+    val like = model.findSynonyms("中国", 40)
+    for((item, cos) <- like){
+      println(s"$item $cos")
+    }
+
   }
 }
