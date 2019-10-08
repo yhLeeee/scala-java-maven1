@@ -4,11 +4,13 @@
 ## wordvec的简单实现
 使用哈工大分词器分词，maven依赖如下：
 
-`<dependency>   
+```
+<dependency>   
     <groupId>com.hankcs</groupId>   
     <artifactId>hanlp</artifactId>   
     <version>portable-1.2.8</version>   
-</dependency>`
+</dependency>
+```
 
 `<dependency>     
     <groupId>org.scalanlp</groupId>    
