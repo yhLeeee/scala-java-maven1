@@ -29,5 +29,6 @@ object word2vec {
       println(s"$item $cos")
     }
 
+
   }
 }
