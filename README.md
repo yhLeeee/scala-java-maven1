@@ -13,7 +13,7 @@
     <groupId>org.scalanlp</groupId>
     <artifactId>nak_2.10</artifactId>
     <version>1.3</version>
-</dependency>···`
+</dependency>`
 
 处理流程：
 1、处理语料
