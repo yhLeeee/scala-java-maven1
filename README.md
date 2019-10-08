@@ -4,16 +4,17 @@
 ## wordvec的简单实现
 使用哈工大分词器分词，maven依赖如下：
 
-`<dependency>  
-    <groupId>com.hankcs</groupId>  
-    <artifactId>hanlp</artifactId>  
-    <version>portable-1.2.8</version>  
-</dependency>  
-<dependency>  
-    <groupId>org.scalanlp</groupId>  
-    <artifactId>nak_2.10</artifactId>  
-    <version>1.3</version>  
-</dependency>`  
+`<dependency>   
+    <groupId>com.hankcs</groupId>   
+    <artifactId>hanlp</artifactId>   
+    <version>portable-1.2.8</version>   
+</dependency>`
+
+`<dependency>     
+    <groupId>org.scalanlp</groupId>    
+    <artifactId>nak_2.10</artifactId>     
+    <version>1.3</version>    
+</dependency>`    
   
 处理流程：  
 1、处理语料  
