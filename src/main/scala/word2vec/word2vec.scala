@@ -1,3 +1,5 @@
+package word2vec
+
 import org.apache.spark.SparkContext
 import org.apache.spark.mllib.feature.Word2Vec
 

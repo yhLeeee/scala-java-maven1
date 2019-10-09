@@ -1,5 +1,7 @@
+package word2vec
+
 import com.hankcs.hanlp.tokenizer.NLPTokenizer
-import org.apache.spark.{SparkContext}
+import org.apache.spark.SparkContext
 
 /**
   * @author yuhanli
@@ -7,26 +9,18 @@ import org.apache.spark.{SparkContext}
   */
 object SeparateWord {
   def segment(sc:SparkContext): Unit ={
-    //stop wordsWordCount$
-    //WordCount
-    //test$
-    //test
-    //Loop$
-    //JoinTest$
-    //HDFSReadAndWrite$
-    //FlatmapAndMap$
+    //stop words
     val stopWordPath = "停用词路径"
     val bcStopWords = sc.broadcast(sc.textFile(stopWordPath).collect().toSet)
 
     //segment
     val inPath = "训练语料路径"
     val segmentRes = sc.textFile(inPath)
-      .map(AsciiUtil.sbc2dbcCase) //全角转半角
+      .map(AsciiUtil2.sbc2dbcCase(_)) //全角转半角
       .mapPartitions(it => {
       it.map(ct => {
         try{
           val nlpList = NLPTokenizer.segment(ct)
-          import scala.collection.JavaConverters._
           nlpList.asScala.map(term => term.word)
             .filter(!bcStopWords.value.contains(_))
             .mkString(" ")
