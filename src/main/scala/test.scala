@@ -1,7 +1,7 @@
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
-  * @author jinxianbao
+  * @author yuhanli
   * @date 2019/10/8 2:48 PM
   */
 object test {

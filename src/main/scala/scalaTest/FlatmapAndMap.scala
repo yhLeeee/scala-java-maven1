@@ -1,7 +1,9 @@
+package scalaTest
+
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
-  * @author yuhanli
+  * @author jinxianbao
   * @date 2019/9/24 4:58 PM
   */
 object FlatmapAndMap {
@@ -17,6 +19,7 @@ object FlatmapAndMap {
     //rdd1.cache()
     rdd1.subtract(sc.parallelize(List((1,2)))).top(1).foreach(println(_))
     rdd1.cache()
+    rdd1.filter(x => (x._2 > 2)) .foreach(println(_))
     val rdd2 = sc.parallelize(List(1,1,2,3))
     rdd2.distinct()
   }

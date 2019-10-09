@@ -2,7 +2,7 @@ import org.apache.spark.SparkContext
 import org.apache.spark.mllib.feature.Word2Vec
 
 /**
-  * @author jinxianbao
+  * @author yuhanli
   * @date 2019/10/8 3:57 PM
   */
 object word2vec {
@@ -29,6 +29,10 @@ object word2vec {
       println(s"$item $cos")
     }
 
+
+  }
+
+  def main(args: Array[String]): Unit = {
 
   }
 }

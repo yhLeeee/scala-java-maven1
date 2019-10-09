@@ -2,12 +2,19 @@ import com.hankcs.hanlp.tokenizer.NLPTokenizer
 import org.apache.spark.{SparkContext}
 
 /**
-  * @author jinxianbao
+  * @author yuhanli
   * @date 2019/10/8 3:40 PM
   */
 object SeparateWord {
   def segment(sc:SparkContext): Unit ={
-    //stop words
+    //stop wordsWordCount$
+    //WordCount
+    //test$
+    //test
+    //Loop$
+    //JoinTest$
+    //HDFSReadAndWrite$
+    //FlatmapAndMap$
     val stopWordPath = "停用词路径"
     val bcStopWords = sc.broadcast(sc.textFile(stopWordPath).collect().toSet)
 
