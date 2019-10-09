@@ -21,6 +21,7 @@ object SeparateWord {
       it.map(ct => {
         try{
           val nlpList = NLPTokenizer.segment(ct)
+          import scala.collection.JavaConverters._
           nlpList.asScala.map(term => term.word)
             .filter(!bcStopWords.value.contains(_))
             .mkString(" ")
