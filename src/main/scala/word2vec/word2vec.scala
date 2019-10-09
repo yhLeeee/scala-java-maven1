@@ -31,7 +31,6 @@ object word2vec {
       println(s"$item $cos")
     }
 
-
   }
 
   def main(args: Array[String]): Unit = {
