@@ -1,7 +1,7 @@
 package word2vec
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.mllib.feature.{Word2Vec, Word2VecModel}
+import org.apache.spark.mllib.feature.{Word2VecModel}
 
 /**
   * @author yuhanli
