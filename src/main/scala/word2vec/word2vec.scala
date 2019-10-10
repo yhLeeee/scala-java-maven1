@@ -1,6 +1,6 @@
 package word2vec
 
-import org.apache.spark.SparkContext
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.mllib.feature.Word2Vec
 
 /**
@@ -9,7 +9,7 @@ import org.apache.spark.mllib.feature.Word2Vec
   */
 object word2vec {
   def word2VecRun(sc:SparkContext)={
-    val input = sc.textFile("分词结果路径").map(line => line.split(" ").toSeq)
+    val input = sc.textFile("/Users/JackKing/Desktop/news_cut.txt").map(line => line.split(" ").toSeq)
     //model train
     val word2vec = new Word2Vec()
       .setVectorSize(50)
@@ -19,11 +19,11 @@ object word2vec {
     println("size:" + model.getVectors.size)
 
     //save and load model
-    model.save(sc, "word2vec模型路径")
+    model.save(sc, "news.model")
     val local = model.getVectors.map{
       case (word, vector) => Seq(word, vector.mkString(" ")).mkString(":")
     }.toArray
-    sc.parallelize(local).saveAsTextFile("word2vec词向量路径")
+    sc.parallelize(local).saveAsTextFile("news_vector.model")
 
     //predict similar words
     val like = model.findSynonyms("中国", 40)
@@ -34,6 +34,8 @@ object word2vec {
   }
 
   def main(args: Array[String]): Unit = {
-
+    val conf = new SparkConf().setMaster("local").setAppName("lyh")
+    val sc = new SparkContext(conf)
+    word2VecRun(sc)
   }
 }
