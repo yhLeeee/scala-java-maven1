@@ -11,7 +11,7 @@ object GetSimilarity {
 
   //寻找对于字符串s，相似度最高的前num个string
   def getSimilarity(sc: SparkContext, s: String, num: Int) ={
-    val model = Word2VecModel.load(sc, "./news.model")
+    val model = Word2VecModel.load(sc, "./newsModel")
     val sd = model.findSynonyms(s, num = 50)
     for(s <- sd){
       println(s._1 + "      " + s._2)
