@@ -21,6 +21,6 @@ object GetSimilarity {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setMaster("local").setAppName("lyh")
     val sc = new SparkContext(conf)
-    getSimilarity(sc, "山东", 50)
+    getSimilarity(sc, "贾宝玉", 50)
   }
 }

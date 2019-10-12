@@ -20,6 +20,12 @@
 ```
 处理流程：  
 1、处理语料  
+```$xslt
+tar -zxvf news_tensite_xml.full.tar.gz
+cat news_tensite_xml.dat | iconv -f gbk -t utf-8 -c | grep "<content>"  > news.txt
+sed -i "s/<\/content>//g" news
+sed -i "s/<content>//g" news
+```
 2、分词，全角转半角、停用词处理、分词、存储  
 3、Skip-gram模型训练   
 skip-gram是将词语作为输入，预测周围的上下文。   
